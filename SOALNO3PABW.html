@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form JSON API</title>
+</head>
+<body>
+    <form id="json-form">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id"><br><br>
+
+        <label for="advice">Advice:</label>
+        <input type="text" id="advice" name="advice"><br><br>
+
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var form = document.getElementById("json-form");
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                var idInput = document.getElementById("id");
+                var adviceInput = document.getElementById("advice");
+                var dateInput = document.getElementById("date");
+
+                var idValue = idInput.value.trim();
+                var adviceValue = adviceInput.value.trim();
+                var dateValue = dateInput.value.trim();
+
+                if (idValue === "") {
+                    alert("Please enter ID");
+                    idInput.focus();
+                    return;
+                }
+
+                if (adviceValue === "") {
+                    alert("Please enter Advice");
+                    adviceInput.focus();
+                    return;
+                }
+
+                if (dateValue === "") {
+                    alert("Please enter Date");
+                    dateInput.focus();
+                    return;
+                }
+
+                // If all validations pass, you can proceed with form submission
+                // You can access the form data using the variables idValue, adviceValue, dateValue
+
+                // Uncomment the line below to submit the form
+                // form.submit();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form JSON API</title>
+</head>
+<body>
+    <form id="json-form">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" readonly><br><br>
+
+        <label for="advice">Advice:</label>
+        <input type="text" id="advice" name="advice" readonly><br><br>
+
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" readonly><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var jsonMessage = {
+                "id": 999,
+                "advice": "Remember my name brother.",
+                "date": "1997-12-08"
+            };
+
+            $('#id').val(jsonMessage.id);
+            $('#advice').val(jsonMessage.advice);
+            $('#date').val(jsonMessage.date);
+
+            $('#json-form').submit(function(e) {
+                e.preventDefault();
+
+                // Handle form submission here
+                var formData = $(this).serialize();
+                console.log(formData);
+
+                // You can send the form data to the server or perform any other action
+
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

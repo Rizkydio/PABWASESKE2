@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contoh DataTables Quote garden dengan AJAX</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <table id="data-table" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Quote</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#data-table').DataTable({
+                ajax: {
+                    url: 'https://quote-garden.onrender.com/api/v3/quotes',
+                    dataSrc: 'data'
+                },
+                columns: [
+                    { data: 'quoteText' },
+                    { data: 'quoteAuthor' }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
